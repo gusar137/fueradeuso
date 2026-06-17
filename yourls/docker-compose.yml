@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+
+  yourls:
+    image: yourls
+    restart: always
+    ports:
+      - 8082:80
+    environment:
+      YOURLS_DB_PASS: $YOURLS_DB_PASS
+      YOURLS_SITE: $YOURLS_SITE
+      YOURLS_USER: $YOURLS_USER
+      YOURLS_PASS: $YOURLS_PASS
+      YOURLS_DB_USER: $YOURLS_DB_USER
+      YOURLS_DB_NAME: $YOURLS_DB_NAME
+      YOURLS_DB_HOST: $YOURLS_DB_HOST
+    volumes:
+      - $PLUGINS:/var/www/html/user/plugins
+      - $USER:/var/www/html/user
+
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+    volumes:
+      - $MYSQL:/var/lib/mysql
