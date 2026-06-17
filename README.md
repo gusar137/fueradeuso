@@ -1,1 +1,1 @@
-Este repositorio contendrá todas las carpetas y archivos que ya queden fuera de uso
+Este repositorio contendrá todas las carpetas y archivos que queden fuera de uso
